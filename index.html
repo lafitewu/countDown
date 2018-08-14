@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>倒计时插件demo</title>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script src="index.js"></script>
+</head>
+<body>
+	<div class="main"></div>
+</body>
+</html>
+<script>
+	$(function() {
+		$(".main").countDown({
+			times: 65,  //'2018/8/13 18:00:00'
+			ms: true,
+			Hour: true
+		});
+		console.log($(".main").text());
+	});
+</script>
