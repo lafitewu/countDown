@@ -1,9 +1,8 @@
 $.fn.countDown = function(options) {
 	var _self = this;
 	var defaults={
-		txt: '我是默认的值',
 		times: '', //必填参数
-		Hour: true, // 分钟显示 
+		Hour: true, // 小时显示 
 		ms: false, //毫秒开关
 		msValue: 90 //毫秒间隔
     };
@@ -57,7 +56,6 @@ $.fn.countDown = function(options) {
  				}
     		},
     		countFn:function() {
- 				// var that = this;
  				if(endOptions.ms) {
  					// bind(this)用于内部this指向
  					this.ClearIn = setInterval(this.Init.bind(this),endOptions.msValue);

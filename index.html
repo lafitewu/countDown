@@ -9,14 +9,15 @@
 </head>
 <body>
 	<div class="main"></div>
+	<a href="function://callapp?f=gotoActivity&os=android&activity=com.expflow.reading.activity.MainActivity&index=2&os1=ios&activity1=XXX&index1=XXX">回到首页</a>
 </body>
 </html>
 <script>
 	$(function() {
 		$(".main").countDown({
-			times: 65,  //'2018/8/13 18:00:00'
-			ms: true,
-			Hour: true
+			times: '2018/8/14 19:00:00',  //'2018/8/13 18:00:00'
+			ms: false,
+			Hour: false
 		});
 		console.log($(".main").text());
 	});
