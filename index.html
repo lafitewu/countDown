@@ -5,19 +5,19 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>倒计时插件demo</title>
 	<script src="jquery-3.1.1.min.js"></script>
-	<script src="index.js"></script>
+	<script src="countDown.js"></script>
 </head>
 <body>
 	<div class="main"></div>
-	<a href="function://callapp?f=gotoActivity&os=android&activity=com.expflow.reading.activity.MainActivity&index=2&os1=ios&activity1=XXX&index1=XXX">回到首页</a>
+	
 </body>
 </html>
 <script>
 	$(function() {
 		$(".main").countDown({
-			times: '2018/8/14 19:00:00',  //'2018/8/13 18:00:00'
+			times: '2018/8/20 18:00:00',  //'2018/8/13 18:00:00'
 			ms: false,
-			Hour: false
+			Hour: true
 		});
 		console.log($(".main").text());
 	});
