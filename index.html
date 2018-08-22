@@ -9,14 +9,13 @@
 </head>
 <body>
 	<div class="main"></div>
-	
 </body>
 </html>
 <script>
 	$(function() {
 		$(".main").countDown({
-			times: '2018/8/20 18:00:00',  //'2018/8/13 18:00:00'
-			ms: false,
+			times: .005,  //'2018/8/13 18:00:00'
+			ms: true,
 			Hour: true
 		});
 		console.log($(".main").text());
