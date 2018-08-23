@@ -24,7 +24,10 @@ $.fn.countDown = function(options,callback) {
 		msValue: 90 //毫秒间隔
     };
     var endOptions=$.extend(defaults,options,callback);
-
+    function demo() {
+        console.log("倒计时结束");
+    }
+    var Fn = callback || demo;
     if(!endOptions.times) {
     	console.error("times值必填");
     }else {
@@ -68,8 +71,7 @@ $.fn.countDown = function(options,callback) {
 
  				// 倒计时结束触发
  				if(this.Hours <= 0 && this.Minutes <= 0 && this.Seconds <= 0) {
- 					console.log("倒计时结束");
-                    callback();
+                    Fn();
  					clearInterval(this.ClearIn);
 
  				}

@@ -25,6 +25,7 @@ name: laftiewu <br>
 qq: 863512936 <br>
 v：1.0 <br>
 creatTime: 2018.08.14 <br>
-update: 2018.08.22 <br>
+update: 2018.08.23 <br>
 2018.08.22新增callback回调函数
+2018.08.23新增默认回调函数&&压缩版修护
    
