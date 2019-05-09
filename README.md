@@ -9,17 +9,17 @@
 	<script src="countDown.js"></script>
 
     $(".main").countDown({
-        times: '2018/8/20 18:00:00',  //必填'2018/8/13 18:00:00或者 2(两分钟) 
-	days: true,  //天数显示
-        ms: false,   //毫秒是否开启
-        Hour: true,   //小时是否开启
-	unit: {
-		days: ':',
-		hour: ':',
-		min: ':',
-		second: ':'
-	}            //默认都是":"  可依次修改成：天、时、分、秒 看看效果
-    },callback);
+		times: '2018/8/20 18:00:00',  //必填'2018/8/13 18:00:00或者 2(两分钟) 
+		days: true,  //天数显示
+		ms: false,   //毫秒是否开启
+		Hour: true,   //小时是否开启
+		unit: {
+			days: ':',
+			hour: ':',
+			min: ':',
+			second: ':'
+		}            //默认都是":"  可依次修改成：天、时、分、秒 看看效果
+	},callback);
 参数说明：
 	``times:`` 必填。 两种形式可选('2018/8/20 18:00:00'和 number) number代表分钟。 比如3，则代表3分钟倒计时。<br>
 	``days:`` boolean 默认true  天数开关<br/>
