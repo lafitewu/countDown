@@ -5,8 +5,14 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>倒计时插件demo</title>
 	<script src="jquery-3.1.1.min.js"></script>
-	<script src="countDown.min.js"></script>
+	<script src="./countDown.min.js"></script>
 </head>
+<style>
+	.lafitewu_days {
+		font-size: 30px;
+		color: red;
+	}
+</style>
 <body>
 	<div class="main"></div>
 </body>
@@ -14,9 +20,15 @@
 <script>
 	$(function() {
 		$(".main").countDown({
-			times: .05,  //'2018/8/13 18:00:00'
-			ms: true,
-			Hour: true
+			times: '2019/5/20 00:00:00',  //'2018/8/13 18:00:00'
+			days: true,
+			ms: false,
+			Hour: false,
+			unit: {
+				days: '天',
+				hour: '啊',
+				second: '秒'
+			}
 		},function() {
 			console.log("我不服！！！");
 		});
