@@ -7,12 +7,6 @@
 	<script src="jquery-3.1.1.min.js"></script>
 	<script src="./countDown.min.js"></script>
 </head>
-<style>
-	.lafitewu_days {
-		font-size: 30px;
-		color: red;
-	}
-</style>
 <body>
 	<div class="main"></div>
 </body>
@@ -21,12 +15,14 @@
 	$(function() {
 		$(".main").countDown({
 			times: '2019/5/20 00:00:00',  //'2018/8/13 18:00:00'
+			system_time: '2019/5/18 00:00:00',
 			days: true,
-			ms: false,
+			ms: true,
 			Hour: false,
+			msValue: 90, //毫秒间隔
 			unit: {
 				days: '天',
-				hour: '啊',
+				hour: '',
 				second: '秒'
 			}
 		},function() {

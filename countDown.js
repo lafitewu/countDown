@@ -4,14 +4,16 @@
     qq:863512936
     v: 1.0
 
-	update: 2019.05.09  v1.2
+	update: 2019.05.10  v1.2.1
 	--- 2018.08.22新增callback回调函数
 	--- 2018.08.23新增默认回调函数&&压缩版修护
 	--- 2019.05.09新增days参数，是否开启天数倒计时 && 新增unit对象可修改默认“:”连接展示，同时每个元素新增样式，可自己修改样式属性
+	--- 2019.05.10新增system_time参数，系统服务器时间是否开启
 
     ps:
     $(".main").countDown({
 		times: '2018/8/20 18:00:00',  //必填'2018/8/13 18:00:00或者 2(两分钟) 
+		system_time: '', //系统服务器时间（不填默认取本地时间）
 		days: true, //天数显示
         ms: false,   //毫秒是否开启
 		Hour: true,   //小时是否开启
@@ -31,6 +33,7 @@ $.fn.countDown = function(options,callback) {
 	var _self = this;
 	var defaults={
 		times: '', //必填参数
+		system_time: '', //系统服务器时间（不填默认取本地时间）
 		days: true, //天数显示
 		Hour: true, // 小时显示 
 		ms: false, //毫秒开关
@@ -39,7 +42,7 @@ $.fn.countDown = function(options,callback) {
 			days: ':',
 			hour: ':',
 			min: ':',
-			second: ':'
+			second: ''
 		}
     };
     var endOptions=$.extend(defaults,options,callback);
@@ -51,6 +54,12 @@ $.fn.countDown = function(options,callback) {
     	console.error("times值必填");
     }else {
     	function timeFn() {
+			if(endOptions.system_time == "") {
+				this.time = new Date().getTime();
+			}else {
+				this.time = new Date(endOptions.system_time).getTime();
+			}
+			
     		if(typeof(endOptions.times) == 'number') {
     			this.End_time = new Date().getTime()+endOptions.times*60*1000;
     		}else {
@@ -59,7 +68,11 @@ $.fn.countDown = function(options,callback) {
     	}
     	timeFn.prototype = {
     		Init:function() {
-    			this.time = new Date().getTime();
+				if(endOptions.ms) {
+					this.time += endOptions.msValue;
+				}else {
+					this.time += 1000;
+				}
 				this.time_diff = (this.End_time - this.time);
 				this.days = parseInt(this.time_diff/(1000 * 60 * 60 * 24));
     			this.Hours = parseInt(this.time_diff/(1000 * 60 * 60));
@@ -113,11 +126,14 @@ $.fn.countDown = function(options,callback) {
  				}
     		},
     		countFn:function() {
+				var that = this;
  				if(endOptions.ms) {
  					// bind(this)用于内部this指向
  					this.ClearIn = setInterval(this.Init.bind(this),endOptions.msValue);
  				}else {
- 					this.ClearIn = setInterval(this.Init.bind(this),1000);
+ 					this.ClearIn = setInterval(function() {
+						 that.Init();
+					 },1000);
  				}
     			
     		},
